@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekapan Gaji</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body onload="loadRekapanGaji()">
+    <nav class="hamburger-menu">
+        <div style="color:var(--accent-gold); font-weight:bold;">BORSIN TENUN</div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Dashboard</a>
+            <a href="hitung_gaji.html">Hitung Baru</a>
+        </div>
+    </nav>
+    <div style="height:60px;"></div>
+
+    <div class="container">
+        <h2>Rekapan Gaji</h2>
+        <div class="table-container">
+            <table id="tabelGaji">
+                <thead>
+                    <tr>
+                        <th>No</th><th>Tgl</th><th>Nama</th><th>Ulos</th><th>Jml</th><th>Tot Pakan</th><th>Tot Pot</th><th>Gaji Bersih</th><th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelGajiBody">
+                    </tbody>
+            </table>
+        </div>
+
+        <div class="card" style="margin-top:15px; background:var(--light-gold);">
+            <p><strong>Total Ulos:</strong> <span id="totUlos">0</span></p>
+            <p><strong>Total Pakan:</strong> <span id="totPakan">0</span></p>
+            <p><strong>Total Potongan:</strong> <span id="totPot">0</span></p>
+            <p style="font-size:1.2rem;"><strong>Total Gaji:</strong> <span id="totGaji">0</span></p>
+        </div>
+
+        <div class="btn-action-group" style="margin-top:20px; flex-wrap:wrap;">
+            <button class="btn btn-primary btn-small" onclick="exportTable('excel')">Excel</button>
+            <button class="btn btn-primary btn-small" onclick="exportTable('pdf')">PDF</button>
+            <button class="btn btn-danger btn-small" onclick="hapusSemuaGaji()">Hapus Semua</button>
+        </div>
+    </div>
+
+    <script>
+        // Export Logic embedded for simplicity due to library dependency
+        function exportTable(type) {
+            if(type === 'excel') {
+                const table = document.getElementById("tabelGaji");
+                const wb = XLSX.utils.table_to_book(table);
+                XLSX.writeFile(wb, "Rekapan_Gaji.xlsx");
+            } else if(type === 'pdf') {
+                window.print(); // Simple solution for mobile, print to PDF
+            }
+        }
+    </script>
+    <footer>&copy; 2024 Borsin Tenun</footer>
+    <script src="script.js"></script>
+</body>
+</html>

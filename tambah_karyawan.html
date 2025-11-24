@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Karyawan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="hamburger-menu">
+        <div style="color:var(--accent-gold); font-weight:bold;">BORSIN TENUN</div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Dashboard</a>
+            <a href="karyawan.html">Data Karyawan</a>
+            <a href="ulos.html">Data Ulos</a>
+            <a href="gaji.html">Rekapan Gaji</a>
+        </div>
+    </nav>
+    <div style="height:60px;"></div>
+
+    <div class="container">
+        <h2>Tambah Karyawan</h2>
+        <div class="form-group">
+            <label>Nama Lengkap</label>
+            <input type="text" id="nama" placeholder="Contoh: Siti Aminah">
+        </div>
+        <div class="form-group">
+            <label>Nomor HP/WA</label>
+            <input type="number" id="hp" placeholder="0812...">
+        </div>
+        <div class="form-group">
+            <label>Nomor Rekening</label>
+            <input type="text" id="rek" placeholder="BRI - 1234xxxx">
+        </div>
+        <button class="btn btn-primary" onclick="simpanKaryawan()">Simpan Data</button>
+    </div>
+
+    <footer>&copy; 2024 Borsin Tenun</footer>
+    <script src="script.js"></script>
+</body>
+</html>

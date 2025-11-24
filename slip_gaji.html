@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slip Gaji</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body onload="loadSlipGaji()">
+    <nav class="hamburger-menu">
+        <div style="color:var(--accent-gold); font-weight:bold;">BORSIN TENUN</div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Dashboard</a>
+        </div>
+    </nav>
+    <div style="height:60px;"></div>
+
+    <div class="container">
+        <h2>Slip Gaji Digital</h2>
+        <div id="slipContainer">
+            </div>
+        <button class="btn btn-danger" onclick="hapusSemuaGaji()">Reset Semua Data Gaji</button>
+    </div>
+
+    <footer>&copy; 2024 Borsin Tenun</footer>
+    <script src="script.js"></script>
+</body>
+</html>

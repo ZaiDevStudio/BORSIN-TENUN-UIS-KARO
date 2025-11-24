@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Karyawan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadKaryawan()">
+    <nav class="hamburger-menu">
+        <div style="color:var(--accent-gold); font-weight:bold;">BORSIN TENUN</div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Dashboard</a>
+            <a href="tambah_karyawan.html">Tambah Karyawan</a>
+        </div>
+    </nav>
+    <div style="height:60px;"></div>
+
+    <div class="container">
+        <h2>Data Karyawan</h2>
+        <div id="karyawanList" class="card-grid">
+            </div>
+        <br>
+        <button class="btn btn-danger" onclick="hapusSemuaKaryawan()">Hapus Semua Data</button>
+    </div>
+
+    <footer>&copy; 2024 Borsin Tenun</footer>
+    <script src="script.js"></script>
+</body>
+</html>

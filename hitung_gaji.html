@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Gaji</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="initHitungGaji()">
+    <nav class="hamburger-menu">
+        <div style="color:var(--accent-gold); font-weight:bold;">BORSIN TENUN</div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Dashboard</a>
+            <a href="gaji.html">Rekapan Gaji</a>
+        </div>
+    </nav>
+    <div style="height:60px;"></div>
+
+    <div class="container">
+        <h2>Hitung Gaji Penenun</h2>
+        
+        <div class="form-group">
+            <label>Nama Karyawan</label>
+            <select id="pilihNama"><option value="">-- Pilih Karyawan --</option></select>
+        </div>
+
+        <div class="form-group">
+            <label>Jenis Ulos</label>
+            <select id="pilihUlos" onchange="autoFillUlos()"><option value="">-- Pilih Ulos --</option></select>
+        </div>
+
+        <div class="form-group">
+            <label>Jumlah Ulos (Lembar)</label>
+            <input type="number" id="jumlahUlos" value="0" oninput="hitungLive()">
+        </div>
+
+        <div class="form-group">
+            <label>Upah Per Lembar (Otomatis)</label>
+            <input type="number" id="displayUpah" readonly style="background:#eee;">
+        </div>
+        <input type="hidden" id="hiddenPakanSatuan">
+        
+        <div class="form-group">
+            <label>Total Biaya Pakan (Otomatis)</label>
+            <input type="number" id="biayaPakanTotal" readonly style="background:#eee;">
+        </div>
+
+        <h3>Potongan</h3>
+        <div class="card-grid">
+            <div><label>Listrik/Air</label><input type="number" id="pot_listrik" value="0" oninput="hitungLive()"></div>
+            <div><label>Wifi</label><input type="number" id="pot_wifi" value="0" oninput="hitungLive()"></div>
+            <div><label>Stel Alat</label><input type="number" id="pot_alat" value="0" oninput="hitungLive()"></div>
+            <div><label>Lainnya</label><input type="number" id="pot_lain" value="0" oninput="hitungLive()"></div>
+        </div>
+
+        <div style="margin-top:20px; text-align:center; font-size:1.2rem; color:var(--primary-green);">
+            Gaji Bersih: <strong id="gajiBersih">Rp 0</strong>
+        </div>
+
+        <button class="btn btn-primary" onclick="simpanGaji()">Simpan & Hitung</button>
+    </div>
+
+    <footer>&copy; 2024 Borsin Tenun</footer>
+    <script src="script.js"></script>
+</body>
+</html>
